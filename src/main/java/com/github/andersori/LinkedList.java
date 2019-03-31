@@ -30,7 +30,7 @@ public class LinkedList<T>{
         LinkedNode<T> newNode = new LinkedNode<T>();
         newNode.setData(data);
 
-        if(this.root == null){
+        if(root == null){
             root = newNode;
             last = root;
         }
@@ -38,19 +38,31 @@ public class LinkedList<T>{
             last.setNext(newNode);
             last = newNode;
         }
+
+        size++;
     }
 
     public void remove(int pos){
 
-        if(pos == 0)
-        {
+        if(pos == 0){
+            root = root.getNext();
+            size--;
+        }
+        else{
+            LinkedNode<T> prev = getNode(pos-1);
             
+            if(prev != null){
+                LinkedNode<T> remov = prev.getNext();
+                prev.setNext(remov.getNext());
+
+                size--;
+            }
         }
     }
 
-    public LinkedNode<T> getNode(int pos){
+    private LinkedNode<T> getNode(int pos){
 
-        if(pos >=0 && pos < size){
+        if(pos >= 0 && pos < size){
             LinkedNode<T> temp = root;
 
             for(int i = 0; i < size; i++){
