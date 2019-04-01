@@ -6,23 +6,23 @@ public class LinkedNode<T>{
     private LinkedNode<T> next;
 
     public LinkedNode(){
-
+        next = null;
     }
 
-    void setData(T data){
+    public void setData(T data){
         this.data = data;
     }
 
-    T getData(){
-        return this.data;
+    public T getData(){
+        return data;
     }
 
-    void setNext(LinkedNode<T> next){
+    public void setNext(LinkedNode<T> next){
         this.next = next;
     }
 
-    LinkedNode<T> getNext(){
-        return this.next;
+    public LinkedNode<T> getNext(){
+        return next;
     }
     
 }
